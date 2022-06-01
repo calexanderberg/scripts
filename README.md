@@ -1,5 +1,5 @@
 # scripts
-A collection of personal scripts I have built and use personally
+A collection of personal scripts I have built and use.
 
 Below is a small description of these scripts
 
