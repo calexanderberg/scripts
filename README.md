@@ -1,7 +1,7 @@
 # scripts
 A collection of personal scripts I have built and use.
 
-Below is a small description of these scripts
+Below is a small description of these scripts:
 
 ### basher
 Takes a file of the users choice, copies it, makes the file executable, and moves it to the usr/locale/bin folder.
