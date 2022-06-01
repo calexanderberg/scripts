@@ -10,4 +10,4 @@ git add .
 echo "Running command: git commit -m \"$txt\""
 git commit -m "$txt"
 echo "Running command: git push"
-#git push
+git push
