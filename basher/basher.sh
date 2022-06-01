@@ -23,7 +23,7 @@ if [[ $decision == "yes" || $decision == "y" ]]; then
 	echo "You selected $file"
 	
 	echo ""
-	echo "Do you want to continue? This is the last security check."
+	echo "Do you want to continue? (y/n) This is the last security check."
 	read decision
 	
 	if [[ $decision == "yes" || $decision == "y" ]]; then
