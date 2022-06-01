@@ -20,7 +20,13 @@ if [[ $decision == "y" ]]; then
 	echo "perfect, please write the name of the file below"
 	read file
 	echo "you selected $file"
+
 else
 	echo ""
 	echo "Use this program when you are in the right directory"
 fi
+
+
+#future commands we will use
+#sudo mv $file ~/usr/local/bin
+#baseName= 'echo file | cut -d "." -f 1'
