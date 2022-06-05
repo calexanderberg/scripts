@@ -14,3 +14,5 @@ I wanted a quick and easy way for me to add files to said directory automaticall
 Git pulls and checks the status of the git repository, then asks if the user wants to update it. It wll then asks for an input text, then runs git add, commit, and push with said message. 
 
 This was created for personal projects where I got tired of writitng three commands when I am the only programmer of said repository.
+
+Update: Since I started working with branches for my projects I will most likely need to rewrite this script to make it more controller and easier to use.
