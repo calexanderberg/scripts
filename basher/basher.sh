@@ -12,7 +12,7 @@ echo "Below is a list of files in your current directory"
 echo "___________________________________________________"
 sudo ls
 echo "___________________________________________________"
-echo "Do you see the file you want to install (y/n)?"
+echo "Do you see the file you want to install [y/n]?"
 read decision
 
 if [[ $decision == "yes" || $decision == "y" ]]; then
@@ -23,7 +23,8 @@ if [[ $decision == "yes" || $decision == "y" ]]; then
 	echo "You selected $file"
 	
 	echo ""
-	echo "Do you want to continue? (y/n) This is the last security check."
+	echo "Do you want to continue? This is the last security check. 
+[y/n]"
 	read decision
 	
 	if [[ $decision == "yes" || $decision == "y" ]]; then
