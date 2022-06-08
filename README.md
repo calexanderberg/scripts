@@ -15,4 +15,4 @@ Git pulls and checks the status of the git repository, then asks if the user wan
 
 This was created for personal projects where I got tired of writitng three commands when I am the only programmer of said repository.
 
-Update: Since I started working with branches for my projects I will most likely need to rewrite this script to make it more controller and easier to use.
+Update: I watched soem tutorials to make git easier to use, for example using alias and "git commit -am" instead of "git add .; git commit -m". Therefore I will not use this as to get more familiar with the industry standard.
