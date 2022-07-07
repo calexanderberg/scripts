@@ -10,6 +10,9 @@ Obviously this command is a security risk as it will allow anyone to make a file
 
 I wanted a quick and easy way for me to add files to said directory automatically, so this was the result. If you find any problems with it or know how to make it better, feel free to hit me up!
 
+### cleaner
+A file used to clean up certain columns in csv files. Used to clean up data that will be used for a future AI project of mine.
+
 ### gits
 Git pulls and checks the status of the git repository, then asks if the user wants to update it. It wll then asks for an input text, then runs git add, commit, and push with said message. 
 
