@@ -1,5 +1,5 @@
 # macs stupid file
-.DS_Storer
+.DS_Store
 
 # test folder
-./dataCleaner/test 
+/dataCleaner/test 
