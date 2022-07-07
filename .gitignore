@@ -2,4 +2,7 @@
 .DS_Store
 
 # test folder
-/dataCleaner/test 
+/dataCleaner/test
+
+# automation
+/secretScripts
