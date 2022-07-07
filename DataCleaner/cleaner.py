@@ -24,29 +24,24 @@ else:
   
 # Creates the new directory for the cleaned data, unless otherwise created
 try:
-  os.mkdir("{}/cleaned".format(arg))
+  os.mkdir("{}/cleanedData".format(arg))
 except OSError as e:
-   print("Directory exists")
+   print("Directory exists\n")
 
 # Uses the argument to read over all csv files in directory
 directory=Path(arg)
+
 files = directory.glob('*.csv')
 def cleaner(files):
     for file in files:
       data = pd.read_csv(file)
       data.drop(['Volume', 'High', 'Low'], inplace=True, axis=1)
-      print(data,'\n')
+      
 
-      """
-      Need to simply write the files to the folder
-
-      print(arg)
-      print(path)
-      print(file)
-      #data.to_csv("{}/cleaned".format(arg), "/file")
-      """
+      filename=str(file).replace(arg + '/', "")
+      data.to_csv(arg + '/cleanedData/' + filename)
+      print(filename, 'cleaned and moved to directory \'cleanedData\'')
 
 cleaner(files)
-
-
-
+print('\nFiles cleaned and process finished')
+print('Have a good day.')
