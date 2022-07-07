@@ -38,7 +38,7 @@ def cleaner(files):
       print(data,'\n')
 
       """
-      Need to simply write the program to the folder
+      Need to simply write the files to the folder
 
       print(arg)
       print(path)
