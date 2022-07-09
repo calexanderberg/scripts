@@ -11,6 +11,7 @@ print('Bot: process started')
 
 csv_file = 'nasdaq_screener.csv'
 cookie = False
+failedStocks = ""
 
 with open(csv_file, 'r') as csvfile:
   stocks = csv.reader(csvfile)
@@ -31,20 +32,24 @@ with open(csv_file, 'r') as csvfile:
         cookie = True
 
       print('attempting download')
-      time.sleep(10)
+      time.sleep(2)
       try:
         timeFrame = driver.find_elements(By.CLASS_NAME ,'table-tabs__tab')
         download_link= driver.find_element(By.CLASS_NAME, 'historical-download')
         timeFrame[5].click()
         print('clicked max')
-        time.sleep(2)
+        time.sleep(1)
         download_link.click()
         print('clicked on link')
-        time.sleep(5)
+        time.sleep(3)
       except:
         print('Wasn\'t able to download stock:', stock)
+        failedStocks += " ,", stocks
         continue
     except:
       print("Error at driver.get(\"http://www.nasdaq.com/symbol/" + stock + "/historical\")")
       continue
+print("Stock history downloaded, the ones that failed is shown below:")
+print(failedStocks)
+print("\nGoodbye")
 driver.quit()
