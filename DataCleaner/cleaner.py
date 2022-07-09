@@ -39,7 +39,7 @@ def cleaner(files):
       
 
       filename=str(file).replace(arg + '/', "")
-      data.to_csv(arg + '/cleanedData/' + filename)
+      data.to_csv(arg + '/cleanedData/' + filename, index=False)
       print(filename, 'cleaned and moved to directory \'cleanedData\'')
 
 cleaner(files)
