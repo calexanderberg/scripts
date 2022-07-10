@@ -32,7 +32,7 @@ with open(csv_file, 'r') as csvfile:
         cookie = True
 
       print('attempting download')
-      time.sleep(2)
+      #time.sleep(2)
       try:
         timeFrame = driver.find_elements(By.CLASS_NAME ,'table-tabs__tab')
         download_link= driver.find_element(By.CLASS_NAME, 'historical-download')
@@ -41,7 +41,7 @@ with open(csv_file, 'r') as csvfile:
         time.sleep(1)
         download_link.click()
         print('clicked on link')
-        time.sleep(3)
+        time.sleep(1)
       except:
         print('Wasn\'t able to download stock:', stock)
         failedStocks += " ,", stocks
