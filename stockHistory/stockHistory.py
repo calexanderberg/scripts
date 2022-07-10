@@ -11,13 +11,14 @@ print('Bot: process started')
 
 csv_file = 'nasdaq_screener.csv'
 cookie = False
-failedStocks = "["
+status = True
+failedStocks = []
 
-with open(csv_file, 'r') as csvfile:
-  stocks = csv.reader(csvfile)
+# Module which downloads the data using selenium
+def downloader(stocks):
   for stock in stocks:
 
-    #stock = str(stock).replace('[\'', '').replace('\']', '')
+    stock = str(stock).replace('[\'', '').replace('\']', '')
 
     print('________________________')
     print("Stock:", stock)
@@ -32,7 +33,6 @@ with open(csv_file, 'r') as csvfile:
         cookie = True
 
       print('attempting download')
-      #time.sleep(2)
       try:
         timeFrame = driver.find_elements(By.CLASS_NAME ,'table-tabs__tab')
         download_link= driver.find_element(By.CLASS_NAME, 'historical-download')
@@ -41,15 +41,34 @@ with open(csv_file, 'r') as csvfile:
         time.sleep(1)
         download_link.click()
         print('clicked on link')
-        #time.sleep(1)
       except:
         print('Wasn\'t able to download stock:', stock)
-        failedStocks += "\"" + str(stock) + "\", " 
+        failedStocks.append(str(stock))
         continue
+
     except:
       print("Error at driver.get(\"http://www.nasdaq.com/symbol/" + stock + "/historical\")")
       continue
-print("Stock history downloaded, the ones that failed is shown below:")
-print(failedStocks + "]")
+
+  print("Stock history downloaded, the ones that failed is shown below:")
+  failedStocks.remove("Symbol") # Removes the Symbol item
+  print(failedStocks)
+
+# First run with downloaded CSV file
+with open(csv_file, 'r') as csvfile:
+  stocks = csv.reader(csvfile)
+  downloader(stocks)
+
+# After that run in while loop to help get the ones that might have been missed for reasons such as web latency or what not.
+while status:
+  check = input("Do you want to try to download the failed ones? [y/n]")
+  if check == "y":
+    print("Understood, continuing the program.")
+    downloader(failedStocks)
+  else:
+    print("You selected no or a wrong input. I hope you got all you needed.")
+    status = False
+
+
 print("\nGoodbye")
 driver.quit()
