@@ -11,13 +11,13 @@ print('Bot: process started')
 
 csv_file = 'nasdaq_screener.csv'
 cookie = False
-failedStocks = ""
+failedStocks = "["
 
 with open(csv_file, 'r') as csvfile:
   stocks = csv.reader(csvfile)
   for stock in stocks:
 
-    stock = str(stock).replace('[\'', '').replace('\']', '')
+    #stock = str(stock).replace('[\'', '').replace('\']', '')
 
     print('________________________')
     print("Stock:", stock)
@@ -41,15 +41,15 @@ with open(csv_file, 'r') as csvfile:
         time.sleep(1)
         download_link.click()
         print('clicked on link')
-        time.sleep(1)
+        #time.sleep(1)
       except:
         print('Wasn\'t able to download stock:', stock)
-        failedStocks += " ,", stocks
+        failedStocks += "\"" + str(stock) + "\", " 
         continue
     except:
       print("Error at driver.get(\"http://www.nasdaq.com/symbol/" + stock + "/historical\")")
       continue
 print("Stock history downloaded, the ones that failed is shown below:")
-print(failedStocks)
+print(failedStocks + "]")
 print("\nGoodbye")
 driver.quit()
